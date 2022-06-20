@@ -34,7 +34,7 @@ where lower(State) in ('jharkhand', 'bihar');
 
 
 
-/* Population in India */
+/* Population in Indian */
 
 select sum(population) as population
 from PortfolioProjectSQL.dbo.Table2;
@@ -42,13 +42,13 @@ from PortfolioProjectSQL.dbo.Table2;
 
 
 
-/* Average growth of India  population */
+/* Average growth of Indian  population */
 select round(avg(Growth),4) as Average_growth
 from PortfolioProjectSQL.dbo.Table1;
 
 
 
-/* Average growth of India  population by state */
+/* Average growth of Indian  population by state */
 
 select State,
        round(avg(Growth),4) as Average_growth
@@ -68,7 +68,7 @@ order by Average_growth desc;
 
 
 
-/* Average Sex_Ration of India  population by state */
+/* Average Sex_Ratio of Indian  population by state */
 
 select State,
        round(avg(Sex_Ratio),4) as Average_Sex_Ratio
@@ -77,7 +77,7 @@ group by State
 order by Average_Sex_Ratio desc;
 
 
--- The bottow 5 state showing the lowest Sex ratio
+-- The bottom 5 states showing the lowest Sex ratio
 
 select top 5 State,
        round(avg(Sex_Ratio),4) as Average_growth
@@ -89,7 +89,7 @@ order by Average_growth asc;
 
 
 
-/* Average literacy of India  population by state */
+/* Average literacy of Indian  population by state */
 
 select State,
        round(avg(Literacy),4) as Average_literacy
@@ -98,7 +98,7 @@ group by State
 order by Average_literacy desc;
 
 
--- The bottow 5 state showing the lowest Sex ratio
+-- The bottow 5 states showing the lowest Sex ratio
 
 select top 5 State,
        round(avg(Literacy),4) as Average_literacy
@@ -107,7 +107,7 @@ group by State
 order by Average_literacy desc;
 
 
--- Another way of selecting the top 5 countries with highest average literacy using with combined with row_number()
+-- Another way of selecting the top 5 countries with highest average literacy using the with statement combined with row_number()
 
 with cte as
 (select  *,
@@ -125,7 +125,7 @@ from cte
 where RowNum<=5m^m:
 
 
---- Using  temp table for seclecting the top 5 countries with highest average literacy
+--- Using  temp table for selecting the top 5 countries with highest average literacy
 
 
 drop table if exists #top5states;
@@ -196,7 +196,7 @@ where upper(State) like 'A%'
 
 
 
-/* Compute the number of Male and the number of Female in the Indian poupulation */
+/* Compute the number of Males and the number of Females in the Indian population */
 
 
 select t1.District,
@@ -208,7 +208,7 @@ Join PortfolioProjectSQL.dbo.Table2   t2
      on t1.District=t2.District;
 
 
-       --- Gender ration is the total number of Females divided by the total number of Males (Sex_Ratio= total Female/total Male)
+       --- Gender ratio is the total number of Females divided by the total number of Males (Sex_Ratio= total Female/total Male)
 
        ---  Total Male= Population/(1+Sex_Ratio) and Total Female= (Population . Sex_Ratio)/(1+Sex_Ratio)
 
@@ -257,7 +257,7 @@ group by tab.State
 
 
 
--- Total Males and Total females in India
+-- Total Males and Total females in Indian
 
 select sum(ftab.Total_males) as TotalMalesInIndia,
        sum(ftab.Total_females) as TotalFemalesInIndia,
@@ -323,7 +323,7 @@ Join PortfolioProjectSQL.dbo.Table2  b
 group by d.state
 
 
--- Literacy and Illiteracy people in India
+-- Literacy and Illiteracy people in Indian
 
 select 
       sum(e.LiteracyPeopleByState) as TotalLiteracyPeopleInIndia,
@@ -381,7 +381,7 @@ Join PortfolioProjectSQL.dbo.Table2  b
 group by d.state
 
 
---- Previous census in India
+--- Previous census in Indian
 
 
 select
